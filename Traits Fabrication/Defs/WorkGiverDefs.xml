@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <WorkGiverDef>
+        <defName>DoBillsTraitWorkbench</defName>
+        <label>操作特性工作台</label>
+        <giverClass>WorkGiver_DoBill</giverClass>
+        <workType>Crafting</workType>
+        <priorityInType>80</priorityInType>
+        <fixedBillGiverDefs>
+            <li>TraitWorkbench</li>
+        </fixedBillGiverDefs>
+        <verb>操作特性工作台</verb>
+        <gerund>操作特性工作台中</gerund>
+        <requiredCapacities>
+            <li>Manipulation</li>
+        </requiredCapacities>
+        <prioritizeSustains>true</prioritizeSustains>
+    </WorkGiverDef>
+</Defs>

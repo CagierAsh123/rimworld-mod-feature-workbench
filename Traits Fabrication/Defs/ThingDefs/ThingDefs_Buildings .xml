@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="BenchBase">
+        <defName>TraitWorkbench</defName>
+        <label>特性工作台</label>
+        <description>用于提取和植入特性的高级工作台</description>
+        <thingClass>Building_WorkTable</thingClass>
+        
+        <!-- 图形设置 - 按照泰南标准 -->
+        <graphicData>
+            <texPath>Things/Building/TraitsFabrication</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <!-- 如果贴图是多帧的，可以用 Graphic_Multi -->
+            <!-- <graphicClass>Graphic_Multi</graphicClass> -->
+            <drawSize>(3,1)</drawSize>
+            <shaderType>Cutout</shaderType>
+        </graphicData>
+
+        <!-- 阴影设置 -->
+        <castEdgeShadows>true</castEdgeShadows>
+        <staticSunShadowHeight>0.20</staticSunShadowHeight>
+
+        <!-- 建造成本 -->
+        <costList>
+            <Steel>50</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+
+        <!-- 建筑属性 -->
+        <altitudeLayer>Building</altitudeLayer>
+        <fillPercent>0.5</fillPercent>
+        <useHitPoints>true</useHitPoints>
+        
+        <!-- 基础状态 -->
+        <statBases>
+            <WorkToBuild>2000</WorkToBuild>
+            <MaxHitPoints>180</MaxHitPoints>
+            <Flammability>1.0</Flammability>
+        </statBases>
+
+        <!-- 尺寸 -->
+        <size>(3,1)</size>
+        
+        <!-- 设计分类和UI顺序 -->
+        <designationCategory>Production</designationCategory>
+        <uiOrder>2420</uiOrder> <!-- 在电动缝纫台后面 -->
+        
+        <!-- 通行属性 -->
+        <passability>PassThroughOnly</passability>
+        <pathCost>50</pathCost>
+        
+        <!-- 交互设置 -->
+        <hasInteractionCell>true</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        
+        <!-- 移除 surfaceType - 建筑不需要这个 -->
+        
+        <!-- 技能要求 -->
+        <constructionSkillPrerequisite>4</constructionSkillPrerequisite>
+        
+        <!-- 界面标签 -->
+        <inspectorTabs>
+            <li>ITab_Bills</li>
+        </inspectorTabs>
+        
+        <!-- 建筑特定属性 -->
+        <building>
+            <spawnedConceptLearnOpportunity>BillsTab</spawnedConceptLearnOpportunity>
+            <!-- 移除 unpoweredWorkTableWorkSpeedFactor - 我们不需要电力 -->
+            <paintable>true</paintable> <!-- 添加可涂色 -->
+            <workTableRoomRole>Laboratory</workTableRoomRole>
+            <workTableNotInRoomRoleFactor>0.8</workTableNotInRoomRoleFactor>
+        </building>
+        
+        <!-- 完整的组件系统 - 按照泰南标准 -->
+        <comps>
+            <!-- 可禁止组件 -->
+            <li Class="CompProperties_Forbiddable"/>
+            
+            <!-- 可开关组件 -->
+            <li Class="CompProperties_Flickable"/>
+            
+            <!-- 受设施影响 -->
+            <li Class="CompProperties_AffectedByFacilities">
+                <linkableFacilities>
+                    <li>ToolCabinet</li>
+                </linkableFacilities>
+            </li>
+ 
+           <li Class="CompProperties_Power">
+                  <compClass>CompPowerTrader</compClass>
+                  <basePowerConsumption>100</basePowerConsumption>
+            </li>
+
+            
+            <!-- 可损坏组件 - 像原版工作台一样 -->
+            <li Class="CompProperties_Breakdownable"/>
+        </comps>
+        
+        <!-- 放置工作者 -->
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+            <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+        </placeWorkers>
+        
+        <!-- 研究前提 - 添加适当的研究要求 -->
+        <researchPrerequisites>
+            <li>MicroelectronicsBasics</li> <!-- 微电子基础 -->
+        </researchPrerequisites>
+    </ThingDef>
+</Defs>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- 空白特性胶囊 -->
+    <ThingDef ParentName="ResourceBase">
+        <defName>BlankTraitCapsule</defName>
+        <label>空白特性胶囊</label>
+        <description>空的生物胶囊，用于提取和存储特性</description>
+        
+        <surfaceType>Item</surfaceType>
+        
+        <!-- 必须添加 costList，否则 recipeMaker 会报错 -->
+        <costList>
+            <Meat_Human>100</Meat_Human>
+        </costList>
+        
+        <graphicData>
+            <texPath>Things/Item/BlankTraitCapsule</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        
+        <stackLimit>10</stackLimit>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <MarketValue>75</MarketValue>
+            <Mass>0.05</Mass>
+            <Flammability>0.7</Flammability>
+            <DeteriorationRate>2</DeteriorationRate>
+        </statBases>
+        
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        
+        <soundInteract>Standard_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        
+        <!-- 修正后的 recipeMaker -->
+        <recipeMaker>
+            <recipeUsers>
+                <li>TraitWorkbench</li>
+            </recipeUsers>
+            <workAmount>400</workAmount>
+            <workSkill>Crafting</workSkill>
+            <skillRequirements>
+                <Crafting>1</Crafting>
+            </skillRequirements>
+            <!-- 移除 ingredients 标签，使用 costList 替代 -->
+        </recipeMaker>
+    </ThingDef>
+
+    <!-- 特性胶囊 -->
+    <ThingDef ParentName="ResourceBase">
+        <defName>TraitCapsule</defName>
+        <label>特性胶囊</label>
+        <description>储存特性的生物胶囊，可以植入到殖民者体内</description>
+        
+        <surfaceType>Item</surfaceType>
+        
+        <graphicData>
+            <texPath>Things/Item/TraitCapsule</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        
+        <stackLimit>1</stackLimit>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <MarketValue>150</MarketValue>
+            <Mass>0.1</Mass>
+            <Flammability>0.7</Flammability>
+            <DeteriorationRate>2</DeteriorationRate>
+        </statBases>
+        
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        
+        <soundInteract>Standard_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+    </ThingDef>
+</Defs>
