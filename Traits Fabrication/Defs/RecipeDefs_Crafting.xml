@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <RecipeDef>
+        <defName>MakeBlankTraitCapsule</defName>
+        <label>制造空白特性胶囊</label>
+        <description>制造用于提取特性的空白胶囊</description>
+        <jobString>制造特性胶囊</jobString>
+        <workSpeedStat>GeneralLaborSpeed</workSpeedStat> 
+        
+        <workAmount>400</workAmount>
+        <workSkill>Crafting</workSkill>
+        
+        <skillRequirements>
+            <Crafting>1</Crafting>
+        </skillRequirements>
+        
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>Meat_Human</li>
+                    </thingDefs>
+                </filter>
+                <count>100</count>
+            </li>
+        </ingredients>
+        
+        <products>
+            <BlankTraitCapsule>1</BlankTraitCapsule>
+        </products>
+        
+        <recipeUsers>
+            <li>TraitWorkbench</li>
+        </recipeUsers>
+    </RecipeDef>
+</Defs>

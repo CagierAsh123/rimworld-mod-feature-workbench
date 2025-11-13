@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- 提取特性手术 - 基于原版手术结构 -->
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>ExtractTraitSurgery</defName>
+        <label>提取特性</label>
+        <description>从殖民者身上提取选择的特性并存储到胶囊中</description>
+        
+        <!-- 使用原版手术的工作类 -->
+        <workerClass>Recipe_Surgery</workerClass>
+        
+        <jobString>提取特性</jobString>
+        <workAmount>1000</workAmount>
+
+        <workSkill>Medicine</workSkill>
+        <workSpeedStat>MedicalTendSpeed</workSpeedStat>
+
+        
+        <!-- 原版手术的标准设置 -->
+        <hideBodyPartNames>true</hideBodyPartNames>
+        <targetsBodyPart>false</targetsBodyPart>
+        <surgerySuccessChanceFactor>1.0</surgerySuccessChanceFactor>
+        
+        <!-- 消耗品 - 参考原版手术的格式 -->
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>BlankTraitCapsule</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>BlankTraitCapsule</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        
+        <!-- 使用工作台 -->
+        <recipeUsers>
+            <li>TraitWorkbench</li>
+        </recipeUsers>
+    </RecipeDef>
+
+    <!-- 植入特性手术 - 同样基于原版结构 -->
+    <RecipeDef ParentName="SurgeryFlesh">
+        <defName>InjectTraitSurgery</defName>
+        <label>植入特性</label>
+        <description>将特性胶囊植入到殖民者体内</description>
+        
+        <workerClass>Recipe_Surgery</workerClass>
+        
+        <jobString>植入特性</jobString>
+        <workAmount>1000</workAmount>
+        
+        <hideBodyPartNames>true</hideBodyPartNames>
+        <targetsBodyPart>false</targetsBodyPart>
+        <surgerySuccessChanceFactor>1.0</surgerySuccessChanceFactor>
+        
+        <ingredients>
+            <li>
+                <filter>
+                    <thingDefs>
+                        <li>TraitCapsule</li>
+                    </thingDefs>
+                </filter>
+                <count>1</count>
+            </li>
+        </ingredients>
+        
+        <fixedIngredientFilter>
+            <thingDefs>
+                <li>TraitCapsule</li>
+            </thingDefs>
+        </fixedIngredientFilter>
+        
+        <recipeUsers>
+            <li>TraitWorkbench</li>
+        </recipeUsers>
+    </RecipeDef>
+</Defs>

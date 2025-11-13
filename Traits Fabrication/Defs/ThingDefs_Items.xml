@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <!-- 空白特性胶囊 -->
+    <ThingDef ParentName="ResourceBase">
+        <defName>BlankTraitCapsule</defName>
+        <label>空白特性胶囊</label>
+        <description>空的生物胶囊，用于提取和存储特性</description>
+        
+        <!-- 使用你的自定义贴图 -->
+        <graphicData>
+            <texPath>Things/Item/BlankTraitCapsule</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        
+        <stackLimit>10</stackLimit>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <MarketValue>75</MarketValue>
+            <Mass>0.05</Mass>
+            <Flammability>0.7</Flammability>
+            <DeteriorationRate>2</DeteriorationRate>
+        </statBases>
+        
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        
+        <soundInteract>Standard_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+    </ThingDef>
+
+    <!-- 特性胶囊 -->
+    <ThingDef ParentName="ResourceBase">
+        <defName>TraitCapsule</defName>
+        <label>特性胶囊</label>
+        <description>储存特性的生物胶囊，可以植入到殖民者体内</description>
+        
+        <!-- 使用你的自定义贴图 -->
+        <graphicData>
+            <texPath>Things/Item/TraitCapsule</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        
+        <stackLimit>1</stackLimit>
+        <statBases>
+            <MaxHitPoints>60</MaxHitPoints>
+            <MarketValue>150</MarketValue>
+            <Mass>0.1</Mass>
+            <Flammability>0.7</Flammability>
+            <DeteriorationRate>2</DeteriorationRate>
+        </statBases>
+        
+        <thingCategories>
+            <li>Manufactured</li>
+        </thingCategories>
+        
+        <soundInteract>Standard_Drop</soundInteract>
+        <soundDrop>Standard_Drop</soundDrop>
+        
+        <!-- 暂时注释掉组件，让物品先能加载 -->
+        <!--
+        <comps>
+            <li Class="TraitWorkbench.CompProperties_TraitItem" />
+        </comps>
+        -->
+    </ThingDef>
+</Defs>
