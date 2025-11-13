@@ -6,7 +6,13 @@
         <label>空白特性胶囊</label>
         <description>空的生物胶囊，用于提取和存储特性</description>
         
-        <!-- 使用你的自定义贴图 -->
+        <surfaceType>Item</surfaceType>
+        
+        <!-- 必须添加 costList，否则 recipeMaker 会报错 -->
+        <costList>
+            <Meat_Human>100</Meat_Human>
+        </costList>
+        
         <graphicData>
             <texPath>Things/Item/BlankTraitCapsule</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -27,6 +33,19 @@
         
         <soundInteract>Standard_Drop</soundInteract>
         <soundDrop>Standard_Drop</soundDrop>
+        
+        <!-- 修正后的 recipeMaker -->
+        <recipeMaker>
+            <recipeUsers>
+                <li>TraitWorkbench</li>
+            </recipeUsers>
+            <workAmount>400</workAmount>
+            <workSkill>Crafting</workSkill>
+            <skillRequirements>
+                <Crafting>1</Crafting>
+            </skillRequirements>
+            <!-- 移除 ingredients 标签，使用 costList 替代 -->
+        </recipeMaker>
     </ThingDef>
 
     <!-- 特性胶囊 -->
@@ -35,7 +54,8 @@
         <label>特性胶囊</label>
         <description>储存特性的生物胶囊，可以植入到殖民者体内</description>
         
-        <!-- 使用你的自定义贴图 -->
+        <surfaceType>Item</surfaceType>
+        
         <graphicData>
             <texPath>Things/Item/TraitCapsule</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -56,12 +76,5 @@
         
         <soundInteract>Standard_Drop</soundInteract>
         <soundDrop>Standard_Drop</soundDrop>
-        
-        <!-- 暂时注释掉组件，让物品先能加载 -->
-        <!--
-        <comps>
-            <li Class="TraitWorkbench.CompProperties_TraitItem" />
-        </comps>
-        -->
     </ThingDef>
 </Defs>
